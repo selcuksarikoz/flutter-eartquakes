@@ -1,20 +1,20 @@
 class EarthQuakeItem {
-  String? id;
-  String? location;
-  String? lat;
-  String? long;
-  String? mag;
-  String? depth;
-  int? time;
+  late String id;
+  late String location;
+  late String lat;
+  late String long;
+  late String mag;
+  late String depth;
+  late int time;
 
   EarthQuakeItem(
-      {this.id,
-      this.location,
-      this.lat,
-      this.long,
-      this.mag,
-      this.depth,
-      this.time});
+      {required this.id,
+      required this.location,
+      required this.lat,
+      required this.long,
+      required this.mag,
+      required this.depth,
+      required this.time});
 
   EarthQuakeItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -27,14 +27,14 @@ class EarthQuakeItem {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['location'] = this.location;
-    data['lat'] = this.lat;
-    data['long'] = this.long;
-    data['mag'] = this.mag;
-    data['depth'] = this.depth;
-    data['time'] = this.time;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['location'] = location;
+    data['lat'] = lat;
+    data['long'] = long;
+    data['mag'] = mag;
+    data['depth'] = depth;
+    data['time'] = time;
     return data;
   }
 }

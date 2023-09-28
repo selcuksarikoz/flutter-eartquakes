@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:evaluate/models/earth_quake_item.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
 class EarthQuakesService {
@@ -20,3 +21,6 @@ class EarthQuakesService {
     }
   }
 }
+
+final listProvider =
+    Provider<EarthQuakesService>((ref) => EarthQuakesService());

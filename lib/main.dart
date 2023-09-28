@@ -1,4 +1,4 @@
-import 'package:evaluate/pages/home/home_page.dart';
+import 'package:evaluate/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: "Flutter Demo",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomePage(),
+      home: const HomeScreen(),
     );
   }
 }

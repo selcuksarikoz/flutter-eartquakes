@@ -1,9 +1,10 @@
+import 'package:evaluate/screens/detail/detail_screen.dart';
 import 'package:evaluate/utils/colors.dart';
+import 'package:evaluate/utils/format_date.dart';
 import 'package:evaluate/utils/mag_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:evaluate/models/earth_quake_item.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 
 class CardDetail extends StatelessWidget {
   const CardDetail({super.key, required this.data});
@@ -12,8 +13,11 @@ class CardDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => DetailScreen(detail: data)));
+      },
       child: Container(
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
@@ -58,7 +62,7 @@ class CardDetail extends StatelessWidget {
                     endIndent: 10,
                     thickness: 1,
                   ),
-                  texts(data.time!)
+                  texts(data.time)
                 ],
               )
 
@@ -68,18 +72,22 @@ class CardDetail extends StatelessWidget {
     );
   }
 
-  Widget texts(int date) {
-    final dt = DateTime.fromMillisecondsSinceEpoch(data.time!);
-    final date = DateFormat('dd/MM/yyyy').format(dt);
-    final hour = DateFormat('HH:mm').format(dt);
+  Widget texts(int currentDate) {
+    final FormatDate dt = FormatDate(currentTime: currentDate);
+    final String date = dt.getFormatted("dd/MM/yyyy");
+    final String hour = dt.getFormatted("HH:mm");
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         columTexts("TARİH", date),
-        const Spacer(),
+        const SizedBox(
+          width: 20,
+        ),
         columTexts("SAAT", hour),
-        const Spacer(),
+        const SizedBox(
+          width: 20,
+        ),
         columTexts("DERİNLİK", data.mag.toString())
       ],
     );
