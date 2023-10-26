@@ -21,8 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Colors.green,
-            statusBarIconBrightness: Brightness.dark,
+            statusBarColor: Colors.black87,
+            statusBarIconBrightness: Brightness.light,
             statusBarBrightness:
                 Brightness.light, // status bar text color scheme
           ),

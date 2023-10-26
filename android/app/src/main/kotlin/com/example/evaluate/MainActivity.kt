@@ -1,4 +1,4 @@
-package com.example.evaluate
+package com.sarikoz.depremapp
 
 import io.flutter.embedding.android.FlutterActivity
 

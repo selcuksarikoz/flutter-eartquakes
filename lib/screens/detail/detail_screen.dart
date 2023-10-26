@@ -39,13 +39,11 @@ class DetailScreen extends StatelessWidget {
             height: 20,
           ),
           otherDetails(date, hour),
-          const SizedBox(
-            height: 20,
-          ),
           Expanded(
+              flex: 2,
               child: Container(
-            decoration: BoxDecoration(color: color),
-          )),
+                decoration: BoxDecoration(color: color),
+              )),
           const SizedBox(
             height: 20,
           ),
@@ -57,30 +55,30 @@ class DetailScreen extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20),
       child: Column(
         children: [
-          Row(
-            children: [
-              detailTexts("TARİH", date),
-              const SizedBox(
-                width: 40,
-              ),
-              detailTexts("SAAT", hour),
-            ],
+          SizedBox(
+            height: 70,
+            child: GridView.count(
+              shrinkWrap: true,
+              crossAxisCount: 3,
+              crossAxisSpacing: 20,
+              children: [
+                detailTexts("TARİH", date),
+                detailTexts("SAAT", hour),
+              ],
+            ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: [
-              detailTexts("DERİNLİK", detail.depth + " KM"),
-              const SizedBox(
-                width: 40,
-              ),
-              detailTexts("ENLEM", detail.lat),
-              const SizedBox(
-                width: 40,
-              ),
-              detailTexts("BOYLAM", detail.long),
-            ],
+          SizedBox(
+            height: 70,
+            child: GridView.count(
+              shrinkWrap: true,
+              crossAxisCount: 3,
+              crossAxisSpacing: 20,
+              children: [
+                detailTexts("DERİNLİK", "${detail.depth} KM"),
+                detailTexts("ENLEM", detail.lat),
+                detailTexts("BOYLAM", detail.long),
+              ],
+            ),
           ),
         ],
       ),
